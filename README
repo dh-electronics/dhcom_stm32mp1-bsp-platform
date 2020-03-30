@@ -1,0 +1,59 @@
+DHCOM STM32MP1 Yocto BSP Platform
+==============================
+
+Supported boards
+----------------
+
+DHCOM STM32MP1
+
+
+Quick Start
+-----------
+
+1. Install Google's repo utility
+
+$: mkdir ~/bin
+$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$: chmod a+x ~/bin/repo
+
+  You can choose any other directory to download the tool. Just make sure that its available in your $PATH variable.
+
+
+2. Create a project directory
+
+$: mkdir dhcom-yocto-bsp
+
+
+3. Initialize repositories and download the sources
+
+$: repo init -u https://github.com/dh-electronics/dhcom_stm32mp1-bsp-platform -b $BRANCH
+
+  For Yocto Thud, choose branch "zeus". 
+  If you are a customer with specific layer settings, your branch is "zeus_projectname"
+
+  After the repositories are successfully initialized, download the sources
+
+$: repo sync
+
+4. Available Machine Types
+
+STM32MP1:
+mainlinestm32mp1 - STM32MP1 for PDK2
+
+5. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
+
+$: MACHINE=mainlinestm32mp1 DISTRO=mainlinestm32mp1 source ./setup-environment build
+$: bitbake core-image-minimal
+
+For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
+
+
+6. Applying your image to SD card
+
+  Yocto builds a Wic SD card image which is stored in the build directory.
+  Make sure to change the device name in the following command before call.
+
+$: cd tmp/deploy/images/mainlinestm32mp1/
+$: gunzip -c core-image-minimal-mainlinestm32mp1.wic.gz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
+
+

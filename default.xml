@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <default sync-j="4" revision="zeus"/>
+
+  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+  <remote fetch="ssh://git@gitlab.denx.de/denx/" name="denx"/>
+  <remote fetch="ssh://git@gitlab.denx.de/dh-electronics" name="denx-dh"/>
+  <remote fetch="https://github.com/openembedded" name="oe"/>
+  <remote fetch="https://github.com/meta-dhcom_stm32mp1" name="dhcom"/>
+  <remote fetch="git://github.com/meta-qt5" name="qt"/>
+
+  <project remote="yocto" revision="zeus" name="poky" path="sources/poky"/>
+
+  <project remote="oe" revision="zeus" name="meta-openembedded" path="sources/meta-openembedded"/>
+
+  <project remote="denx" revision="zeus-3.0" name="meta-mainline-common" path="sources/meta-mainline-common"/>
+  <project remote="denx" revision="zeus-3.0" name="meta-mainline-graphics" path="sources/meta-mainline-graphics"/>
+  <project remote="denx-dh" revision="zeus-3.0" name="meta-mainline-stm32mp1" path="sources/meta-mainline-stm32mp1"/>
+
+  <project remote="dhcom" revision="zeus" name="meta-dhcom_stm32mp1" path="sources/meta-dhcom_stm32mp1">
+	<copyfile src="conf/bblayers.conf" dest="sources/base/conf/bblayers.conf"/>
+	<linkfile dest="setup-environment" src="setup-environment"/>
+  </project>
+  <project remote="qt" revision="zeus" name="meta-qt5" path="sources/meta-qt5"/>
+</manifest>
