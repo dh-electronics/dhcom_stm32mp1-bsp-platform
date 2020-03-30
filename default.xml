@@ -7,7 +7,7 @@
   <remote fetch="ssh://git@gitlab.denx.de/denx/" name="denx"/>
   <remote fetch="ssh://git@gitlab.denx.de/dh-electronics" name="denx-dh"/>
   <remote fetch="https://github.com/openembedded" name="oe"/>
-  <remote fetch="https://github.com/meta-dhcom_stm32mp1" name="dhcom"/>
+  <remote fetch="https://github.com/dh-electronics" name="dhcom"/>
   <remote fetch="git://github.com/meta-qt5" name="qt"/>
 
   <project remote="yocto" revision="zeus" name="poky" path="sources/poky"/>
