@@ -4,7 +4,6 @@
   <default sync-j="4" revision="zeus"/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
-  <remote fetch="ssh://git@gitlab.denx.de/denx/" name="denx"/>
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="ssh://git@github.com/dh-electronics" name="dhcom"/>
   <remote fetch="git://github.com/meta-qt5" name="qt"/>
@@ -13,8 +12,8 @@
 
   <project remote="oe" revision="zeus" name="meta-openembedded" path="sources/meta-openembedded"/>
 
-  <project remote="denx" revision="zeus-3.0" name="meta-mainline-common" path="sources/meta-mainline-common"/>
-  <project remote="denx" revision="zeus-3.0" name="meta-mainline-graphics" path="sources/meta-mainline-graphics"/>
+  <project remote="dhcom" revision="zeus-3.0" name="meta-mainline-common" path="sources/meta-mainline-common"/>
+  <project remote="dhcom" revision="zeus-3.0" name="meta-mainline-graphics" path="sources/meta-mainline-graphics"/>
   <project remote="dhcom" revision="zeus-3.0" name="meta-dhsom-stm32-bsp" path="sources/meta-dhsom-stm32-bsp"/>
   <project remote="dhcom" revision="zeus-3.0" name="meta-dhsom-stm32-extras" path="sources/meta-dhsom-stm32-extras"/>
 
