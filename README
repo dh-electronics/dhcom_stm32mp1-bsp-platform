@@ -28,7 +28,7 @@ $: mkdir dhcom-yocto-bsp
 
 $: repo init -u https://github.com/dh-electronics/dhcom_stm32mp1-bsp-platform -b $BRANCH
 
-  For Yocto Thud, choose branch "zeus". 
+  For Yocto Zeus, choose branch "zeus". 
   If you are a customer with specific layer settings, your branch is "zeus_projectname"
 
   After the repositories are successfully initialized, download the sources
@@ -38,11 +38,11 @@ $: repo sync
 4. Available Machine Types
 
 STM32MP1:
-mainlinestm32mp1 - STM32MP1 for PDK2
+dhsomstm32mp1 - STM32MP1 for PDK2
 
 5. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
 
-$: MACHINE=mainlinestm32mp1 DISTRO=mainlinestm32mp1 source ./setup-environment build
+$: MACHINE=dhsomstm32mp1 DISTRO=mainlinestm32mp1 source ./setup-environment build
 $: bitbake core-image-minimal
 
 For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
@@ -53,7 +53,7 @@ For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Imag
   Yocto builds a Wic SD card image which is stored in the build directory.
   Make sure to change the device name in the following command before call.
 
-$: cd tmp/deploy/images/mainlinestm32mp1/
-$: gunzip -c core-image-minimal-mainlinestm32mp1.wic.gz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
+$: cd tmp/deploy/images/dhsomstm32mp1/
+$: gunzip -c core-image-minimal-dhsomstm32mp1.wic.gz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
 
 
