@@ -15,9 +15,10 @@
 
   <project remote="denx" revision="zeus-3.0" name="meta-mainline-common" path="sources/meta-mainline-common"/>
   <project remote="denx" revision="zeus-3.0" name="meta-mainline-graphics" path="sources/meta-mainline-graphics"/>
-  <project remote="dhcom" revision="zeus-3.0" name="meta-mainline-stm32mp1" path="sources/meta-mainline-stm32mp1"/>
+  <project remote="dhcom" revision="zeus-3.0" name="meta-dhsom-stm32-bsp" path="sources/meta-dhsom-stm32-bsp"/>
+  <project remote="dhcom" revision="zeus-3.0" name="meta-dhsom-stm32-extras" path="sources/meta-dhsom-stm32-extras"/>
 
-  <project remote="dhcom" revision="zeus" name="meta-dhcom_stm32mp1" path="sources/meta-dhcom_stm32mp1">
+  <project remote="dhcom" revision="zeus" name="meta-dhsom-stm32-common" path="sources/meta-dhsom-stm32-common">
 	<copyfile src="conf/bblayers.conf" dest="sources/base/conf/bblayers.conf"/>
 	<linkfile dest="setup-environment" src="setup-environment"/>
   </project>
