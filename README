@@ -4,7 +4,8 @@ DHCOM STM32MP1 Yocto BSP Platform
 Supported boards
 ----------------
 
-DHCOM STM32MP1
+DHCOM STM32MP1 with Premium Developer Kit 2 (PDK2)
+DHCOR STM32MP1 with Avenger96 Board
 
 
 Quick Start
@@ -38,22 +39,28 @@ $: repo sync
 4. Available Machine Types
 
 STM32MP1:
-dhsomstm32mp1 - STM32MP1 for PDK2
+dh-stm32mp1-dhcom-common-pdk2 - DHCOM STM32MP1 for PDK2
+dh-stm32mp1-dhcor-common-avenger96 - DHCOR STM32MP1 for AV96
 
-5. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
+5. Available Image Types
 
-$: MACHINE=dhsomstm32mp1 DISTRO=mainlinestm32mp1 source ./setup-environment build
+core-image-minimal: minimal configuration
+dh-image-demo: Weston image with QT5 and several examples and demos 
+
+6. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
+
+$: MACHINE=dh-stm32mp1-dhcom-common-pdk2 DISTRO=dh-linux source ./setup-environment build
 $: bitbake core-image-minimal
 
 For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
 
 
-6. Applying your image to SD card
+7. Applying your image to SD card
 
   Yocto builds a Wic SD card image which is stored in the build directory.
   Make sure to change the device name in the following command before call.
 
-$: cd tmp/deploy/images/dhsomstm32mp1/
-$: gunzip -c core-image-minimal-dhsomstm32mp1.wic.gz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
+$: cd tmp/deploy/images/dh-stm32mp1-dhcom-common-pdk21/
+$: gunzip -c core-image-minimal-dh-stm32mp1-dhcom-common-pdk2.wic.gz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
 
 
