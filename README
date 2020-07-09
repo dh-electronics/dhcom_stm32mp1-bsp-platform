@@ -49,7 +49,7 @@ dh-image-demo: Weston image with QT5 and several examples and demos
 
 6. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
 
-$: MACHINE=dh-stm32mp1-dhcom-common-pdk2 DISTRO=dh-linux source ./setup-environment build
+$: MACHINE=dh-stm32mp1-dhcom-common-pdk2 DISTRO=dhlinux source ./setup-environment build
 $: bitbake core-image-minimal
 
 For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
