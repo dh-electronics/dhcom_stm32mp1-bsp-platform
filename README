@@ -44,13 +44,13 @@ dh-stm32mp1-dhcor-common-avenger96 - DHCOR STM32MP1 for AV96
 
 5. Available Image Types
 
-core-image-minimal: minimal configuration
 dh-image-demo: Weston image with QT5 and several examples and demos 
+core-image-minimal: minimal configuration
 
 6. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
 
 $: MACHINE=dh-stm32mp1-dhcom-common-pdk2 DISTRO=dhlinux source ./setup-environment build
-$: bitbake core-image-minimal
+$: bitbake dh-image-demo
 
 For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
 
@@ -61,6 +61,6 @@ For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Imag
   Make sure to change the device name in the following command before call.
 
 $: cd tmp/deploy/images/dh-stm32mp1-dhcom-common-pdk21/
-$: gunzip -c core-image-minimal-dh-stm32mp1-dhcom-common-pdk2.wic.gz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
+$: unxz -c dh-image-demo-dh-stm32mp1-dhcom-common-pdk2.wic.xz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
 
 
