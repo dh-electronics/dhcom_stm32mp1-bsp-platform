@@ -6,7 +6,7 @@
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="https://github.com/dh-electronics" name="dhcom"/>
-  <remote fetch="git://github.com/meta-qt5" name="qt"/>
+  <remote fetch="https://github.com/meta-qt5" name="qt"/>
 
   <project remote="yocto" revision="zeus" name="poky" path="sources/poky"/>
 
