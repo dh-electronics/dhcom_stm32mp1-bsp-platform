@@ -8,6 +8,22 @@ DHCOM STM32MP1 with Premium Developer Kit 2 (PDK2)
 DHCOR STM32MP1 with Avenger96 Board
 
 
+Prerequisites
+-------------
+
+DH-electronics provides a customized virtual machine for developement based on Debian Stretch.
+More information about the VM can be read here:
+https://wiki.dh-electronics.com/index.php/Virtual_Machine_for_Application_Development
+
+In addition its necessary to install the packages "texinfo" and "g++multilib" aswell.
+
+If you are using any other linux system, please take a look at the official yocto quickstart guide first:
+https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.html
+
+The required packages for your build host are specified here:
+https://www.yoctoproject.org/docs/3.0/ref-manual/ref-manual.html#required-packages-for-the-build-host
+
+
 Quick Start
 -----------
 
