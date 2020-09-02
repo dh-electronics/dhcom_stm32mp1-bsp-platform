@@ -4,13 +4,14 @@
   <default sync-j="4" revision="dunfell"/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
-  <remote fetch="https://github.com/openembedded" name="oe"/>
+  <remote fetch="https://github.com/openembedded" name="oegithub"/>
   <remote fetch="https://github.com/dh-electronics" name="dhcom"/>
   <remote fetch="https://github.com/meta-qt5" name="qt"/>
+  <remote fetch="https://git.openembedded.org/" name="oe"/>
 
   <project remote="yocto" revision="dunfell" name="poky" path="sources/poky"/>
 
-  <project remote="oe" revision="dunfell" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="oegithub" revision="dunfell" name="meta-openembedded" path="sources/meta-openembedded"/>
 
   <project remote="dhcom" revision="dunfell-3.1" name="meta-mainline-common" path="sources/meta-mainline-common"/>
   <project remote="dhcom" revision="dunfell-3.1" name="meta-mainline-graphics" path="sources/meta-mainline-graphics"/>
@@ -22,4 +23,5 @@
 	<linkfile dest="setup-environment" src="setup-environment"/>
   </project>
   <project remote="qt" revision="dunfell" name="meta-qt5" path="sources/meta-qt5"/>
+  <project remote="oe" revision="dunfell" name="meta-python2" path="sources/meta-python2"/>
 </manifest>
