@@ -8,6 +8,8 @@
   <remote fetch="https://github.com/dh-electronics" name="dhcom"/>
   <remote fetch="https://github.com/meta-qt5" name="qt"/>
   <remote fetch="https://git.openembedded.org/" name="oe"/>
+  <remote fetch="https://github.com/sbabic/" name="sbabic"/>
+
 
   <project remote="yocto" revision="dunfell" name="poky" path="sources/poky"/>
 
@@ -24,4 +26,5 @@
   </project>
   <project remote="qt" revision="dunfell" name="meta-qt5" path="sources/meta-qt5"/>
   <project remote="oe" revision="dunfell" name="meta-python2" path="sources/meta-python2"/>
+  <project remote="sbabic" revision="dunfell" name="meta-swupdate" path="sources/meta-swupdate"/>
 </manifest>
