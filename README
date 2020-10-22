@@ -81,4 +81,14 @@ For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Imag
 $: cd tmp/deploy/images/dh-stm32mp1-dhcom-common-pdk21/
 $: unxz -c dh-image-demo-dh-stm32mp1-dhcom-common-pdk2.wic.xz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
 
+Optional: RT patched sources
+
+There is also an option to build a rt patched linux kernel. This is just for experimental usage and NOT maintained by dh-electronics.
+Machines:
+dh-stm32mp1-dhcom-common-pdk2-rt - DHCOM STM32MP1 for PDK2
+dh-stm32mp1-dhcor-common-avenger96-rt - DHCOR STM32MP1 for AV96
+dh-stm32mp1-dhcom-common-drc02-rt - DHCOM STM32MP1 for DRC02
+
+Image(based on core-image-rt):
+dhsom-core-image-rt
 
