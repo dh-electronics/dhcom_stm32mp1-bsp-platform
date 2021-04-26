@@ -56,39 +56,57 @@ $: repo sync
 4. Available Machine Types
 
 STM32MP1:
-dh-stm32mp1-dhcom-common-pdk2 - DHCOM STM32MP1 for PDK2
-dh-stm32mp1-dhcor-common-avenger96 - DHCOR STM32MP1 for AV96
-dh-stm32mp1-dhcom-common-drc02 - DHCOM STM32MP1 for DRC02
+  dh-stm32mp1-dhcom-pdk2 - DHCOM STM32MP1 for PDK2
+  dh-stm32mp1-dhcor-avenger96 - DHCOR STM32MP1 for AV96
+  dh-stm32mp1-dhcom-drc02 - DHCOM STM32MP1 for DRC02
+  dh-stm32mp1-dhcom-picoitx - DHCOM STM32MP1 for picoITX
 
 5. Available Image Types
 
-dh-image-demo: Weston image with QT5 and several examples and demos 
-core-image-minimal: minimal configuration
+  dh-image-demo: Weston image with QT5 and several examples and demos 
+  core-image-minimal: minimal configuration
 
 6. Setup Yocto environment and build your Image (Example: DHCOM STM32MP1)
 
 $: MACHINE=dh-stm32mp1-dhcom-common-pdk2 DISTRO=dhlinux source ./setup-environment build
 $: bitbake dh-image-demo
 
-For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
+  For other DHCOM modules or customer specific settings, $MACHINE and Bitbake-Image might differ.
 
 
 7. Applying your image to SD card
 
-  Yocto builds a Wic SD card image which is stored in the build directory.
+  Yocto builds a .wic SD card image which is stored in the build directory.
   Make sure to change the device name in the following command before call.
 
-$: cd tmp/deploy/images/dh-stm32mp1-dhcom-common-pdk21/
+$: cd tmp/deploy/images/dh-stm32mp1-dhcom-common-pdk2/
 $: unxz -c dh-image-demo-dh-stm32mp1-dhcom-common-pdk2.wic.xz | sudo dd of=/dev/sdX bs=1M iflag=fullblock oflag=direct conv=fsync status=progress
 
 Optional: RT patched sources
 
-There is also an option to build a rt patched linux kernel. This is just for experimental usage and NOT maintained by dh-electronics.
-Machines:
-dh-stm32mp1-dhcom-common-pdk2-rt - DHCOM STM32MP1 for PDK2
-dh-stm32mp1-dhcor-common-avenger96-rt - DHCOR STM32MP1 for AV96
-dh-stm32mp1-dhcom-common-drc02-rt - DHCOM STM32MP1 for DRC02
+  There is also an option to build a rt patched linux kernel. This is just for experimental usage and NOT maintained by dh-electronics.
+  Machines:
+  dh-stm32mp1-dhcom-common-pdk2-rt - DHCOM STM32MP1 for PDK2
+  dh-stm32mp1-dhcor-common-avenger96-rt - DHCOR STM32MP1 for AV96
+  dh-stm32mp1-dhcom-common-drc02-rt - DHCOM STM32MP1 for DRC02
 
-Image(based on core-image-rt):
-dhsom-core-image-rt
+  Image(based on core-image-rt):
+  dhsom-core-image-rt
+
+Optional: fitImage with initramfs
+
+  The fitImage can be provided with a small initramfs based on poky distro and containing swupdate.
+  There are a few manual changes needed to adjust your Yocto project.
+
+  First set up your Yocto project as usual with the following environment:
+
+$:MACHINE=dh-stm32mp1-dhcom-pdk2-update DISTRO=poky source ./setup-environment build-swu
+
+  After your build directory is created, you need to add the following line to "build-swu/conf/bblayers.conf"
+  ${BSPDIR}/sources/poky/meta-poky \
+
+  Build the image:
+$: bitbake core-image-swupdate
+
+  The fitImage can be found in "tmp/deploy/images/dh-stm32mp1-dhcom-pdk2-update/"
 
